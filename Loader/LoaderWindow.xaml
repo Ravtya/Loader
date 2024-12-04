@@ -1,0 +1,25 @@
+﻿<Window x:Class="Loader.LoaderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Проверка обновлений" WindowStartupLocation="CenterScreen" 
+        WindowStyle="None" Background="Transparent" AllowsTransparency="True" SizeToContent="WidthAndHeight" ShowInTaskbar="False">
+    <Window.Resources>
+        <!--<LinearGradientBrush x:Name="OpacityBrush" StartPoint="0,0" EndPoint="0,1"/>-->
+    </Window.Resources>
+    <Grid Margin="30">
+        <Image Source="/logo.png" x:Name="imgLoad" MaxHeight="150" MaxWidth="400" >
+            <Image.Triggers>
+                <EventTrigger RoutedEvent="Image.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="imgLoad" Storyboard.TargetProperty="Opacity"
+                                                From="1.0" To="0.0" Duration="0:0:1.3" AutoReverse="True" RepeatBehavior="Forever"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Image.Triggers>
+        </Image>
+    </Grid>
+</Window>
